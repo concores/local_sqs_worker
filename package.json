@@ -1,0 +1,16 @@
+{
+  "name": "local_sqs_worker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@jishimi/sqs-poller": "^1.0.4",
+    "axios": "^0.21.1",
+    "dotenv": "^8.2.0"
+  }
+}
