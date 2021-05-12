@@ -10,7 +10,7 @@ const forwardToServer = async (payload) => {
     return axios.post(process.env.API_ENDPOINT, payload)
     .then(res => {
         console.log(`HTTP status: ${res.status} ${res.statusText}`);
-        console.log(res.data);
+        console.log(`Response: ${res.data}`);
         //console.debug(res);
     })
     .catch(err => {
@@ -23,7 +23,7 @@ const poller = new SqsPoller(process.env.QUEUE_URL, async (msg) => {
     await forwardToServer(msg);
 });
 
-poller.on('error', (err) => console.error(err));
+poller.on('error', (err) => console.error(`ERROR: ${err}`));
 
 console.info(`Polling ${process.env.QUEUE_URL}`);
 console.info(`Forwarding to ${process.env.API_ENDPOINT}`);
