@@ -19,7 +19,7 @@ const forwardToServer = async (payload) => {
 };
 
 const poller = new SqsPoller(process.env.QUEUE_URL, async (msg) => {
-    console.log(`Message recieved`);
+    console.log(`Message received`);
     await forwardToServer(msg);
 });
 
